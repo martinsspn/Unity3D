@@ -483,6 +483,9 @@ MonoBehaviour:
   minBound: -10.5
   maxUp: 6.2
   minDown: -6.5
+  shot: {fileID: 4024815150710650137, guid: e4fe53ff3051b6e47848bfd0f9f12e7c, type: 3}
+  shotSpawn: {fileID: 1602445177}
+  fireRate: 0.1
 --- !u!50 &1602445173
 Rigidbody2D:
   serializedVersion: 4

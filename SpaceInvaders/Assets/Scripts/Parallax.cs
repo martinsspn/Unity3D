@@ -9,7 +9,6 @@ public class Parallax : MonoBehaviour
 {
     //Coloque a referência de background aqui.
     public RawImage image;
-    
     //Mude a velocidade que sua imagem irá "andar".
     public float speed;
 

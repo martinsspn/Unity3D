@@ -6,8 +6,9 @@ TagManager:
   tags:
   - bullet
   - Base
-  - Enemy
   - Spawner
+  - Enemy
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

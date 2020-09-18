@@ -21,11 +21,11 @@ public class BulletController : MonoBehaviour
             Destroy (gameObject);
     }
     // Update is called once per frame
-    void OnTriggerEnter2d(Collider2D other){
+    void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Enemy"){
             Destroy (other.gameObject);
             Destroy (gameObject);
-            PlayerScore.playerScore++;
+            PlayerScore.playerScore += 1;
         }
     }
 }

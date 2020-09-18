@@ -27,7 +27,13 @@ public class EnemyController : MonoBehaviour
             Destroy (gameObject);
             GameOver.isPlayerDead = true;
         }
+
+        if (Random.value > fireRate)
+        {
+            Instantiate(shot, enemy.position, enemy.rotation);
+        }
     }
+
 
     void Update(){
         if(Time.time > next_spawn_time)
@@ -37,5 +43,15 @@ public class EnemyController : MonoBehaviour
         //increment next_spawn_time
         next_spawn_time += 5.0f;
      }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            Destroy(other.gameObject);
+            Destroy (gameObject);
+            GameOver.isPlayerDead = true;
+        }
     }
 }

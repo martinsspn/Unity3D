@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e63662a80631e43a26b6ea521de18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3228372278827314657, guid: ea33d52fce4878147990b3cd4febf981, type: 3}
+  enemy: {fileID: 3153305142233429404, guid: ea33d52fce4878147990b3cd4febf981, type: 3}
   minX: -14
   maxX: 14
   timeSpawn: 5
@@ -725,6 +725,7 @@ GameObject:
   - component: {fileID: 1931611980}
   - component: {fileID: 1931611982}
   - component: {fileID: 1931611981}
+  - component: {fileID: 1931611983}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -792,6 +793,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931611979}
   m_CullTransparentMesh: 0
+--- !u!114 &1931611983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931611979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c18c62f1df68b4499d93fe23e0f047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2055399672
 GameObject:
   m_ObjectHideFlags: 0

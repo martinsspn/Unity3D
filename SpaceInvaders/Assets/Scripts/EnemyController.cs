@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class EnemyController : MonoBehaviour
 {
     private Transform enemy;
     public float speed;
     public float next_spawn_time;
+    public GameObject shot;
+    public float fireRate = 0.997f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,7 @@ public class EnemyController : MonoBehaviour
         enemy.position += Vector3.up * speed * -1;
         if(enemy.position.y <= -7f){
             Destroy (gameObject);
+            GameOver.isPlayerDead = true;
         }
     }
 

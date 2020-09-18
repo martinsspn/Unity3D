@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class BulletController : MonoBehaviour
 {
     private Transform bullet;
     public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,7 @@ public class BulletController : MonoBehaviour
         if(other.tag == "Enemy"){
             Destroy (other.gameObject);
             Destroy (gameObject);
-        }else if(other.tag == "Base"){
-            Destroy (gameObject);
+            PlayerScore.playerScore++;
         }
     }
 }

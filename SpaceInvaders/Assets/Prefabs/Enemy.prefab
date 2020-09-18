@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 422461673646510232}
   - component: {fileID: -3882121250259585246}
   - component: {fileID: 2500037845141690846}
-  - component: {fileID: 4201745229170269043}
+  - component: {fileID: -7047313953137126888}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.05
   next_spawn_time: 2
+  shot: {fileID: 0}
+  fireRate: 0.997
 --- !u!50 &2500037845141690846
 Rigidbody2D:
   serializedVersion: 4
@@ -118,8 +120,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &4201745229170269043
+  m_Constraints: 6
+--- !u!61 &-7047313953137126888
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

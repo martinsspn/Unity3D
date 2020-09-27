@@ -27,9 +27,16 @@ public class SpawnerController : MonoBehaviour
 
     public void Spawn()
     {
-        GameObject ob = GameObject.Instantiate(enemy) as GameObject;
+        //GameObject ob = GameObject.Instantiate(enemy) as GameObject;
         Vector2 newPos = new Vector2(Random.Range(minX, maxX), 7f);
-        ob.transform.position = newPos;
+        //ob.transform.position = newPos;
+        GameObject ob = ObjectPool.SharedInstance.GetPooledObject("Enemy", enemy);
+        if (ob != null)
+        {
+            ob.transform.position = newPos;
+            ob.SetActive(true);
+        }
+        
     }
       
     IEnumerator TimedSpawn(float t)

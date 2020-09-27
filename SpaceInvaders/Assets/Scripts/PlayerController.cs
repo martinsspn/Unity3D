@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 	private Transform player;
 	public float speed;
 	public float maxBound, minBound, maxUp, minDown;
-
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
@@ -42,11 +41,20 @@ public class PlayerController : MonoBehaviour
         else
             player.position += Vector3.up * 1f * speed;
     }
+    
 
     void Update(){
         if(Input.GetButton("Fire1") && Time.time > nextFire){
             nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            //Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            GameObject bullet = ObjectPool.SharedInstance.GetPooledObject("Bullet", shot);
+        if (bullet != null)
+        {
+            bullet.transform.position = shotSpawn.transform.position;
+            bullet.transform.rotation = shotSpawn.transform.rotation;
+            bullet.SetActive(true);
+        }
+            
         }
     }
 }

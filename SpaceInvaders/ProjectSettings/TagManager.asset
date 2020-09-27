@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - bullet
   - Base
   - Spawner
-  - Enemy
   - EnemyBullet
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

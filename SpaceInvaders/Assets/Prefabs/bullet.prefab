@@ -23,12 +23,17 @@ PrefabInstance:
     - target: {fileID: 1319684642520249618, guid: de13c4d8599e8f147ae97bfd7a19ab06,
         type: 3}
       propertyPath: m_Name
-      value: bullet
+      value: Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 1319684642520249618, guid: de13c4d8599e8f147ae97bfd7a19ab06,
         type: 3}
       propertyPath: m_TagString
-      value: bullet
+      value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 1319684642520249618, guid: de13c4d8599e8f147ae97bfd7a19ab06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3523910451881038578, guid: de13c4d8599e8f147ae97bfd7a19ab06,
         type: 3}

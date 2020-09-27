@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     {
         enemy = GetComponent<Transform> ();
         next_spawn_time = Time.time+5.0f;
-
+        
     }
 
 
@@ -24,7 +24,9 @@ public class EnemyController : MonoBehaviour
     {
         enemy.position += Vector3.up * speed * -1;
         if(enemy.position.y <= -7f){
-            Destroy (gameObject);
+            //Destroy (gameObject);
+            //ObjectPool.SharedInstance.returnToPool(gameObject);
+            ObjectPool.SharedInstance.ReturnToPool(gameObject);
             GameOver.isPlayerDead = true;
         }
 
@@ -34,23 +36,32 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
+/*
     void Update(){
         if(Time.time > next_spawn_time)
      {
          //do stuff here (like instantiate)
-        Instantiate(enemy, Vector3.right * 2f, enemy.rotation);
+        //Instantiate(enemy, Vector3.right * 2f, enemy.rotation);
+        GameObject enemy = ObjectPool.SharedInstance.GetPooledObject("Enemy");
+        Debug.Log("Entrou aqui");
+        if (enemy != null)
+        {
+            enemy.transform.position = Vector3.right * 2f;
+            enemy.transform.rotation = enemy.transform.rotation;
+            enemy.SetActive(true);
+        }
         //increment next_spawn_time
         next_spawn_time += 5.0f;
      }
     }
-
+*/
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             Destroy(other.gameObject);
-            Destroy (gameObject);
+            //Destroy (gameObject);
+            ObjectPool.SharedInstance.ReturnToPool(gameObject);
             GameOver.isPlayerDead = true;
         }
     }

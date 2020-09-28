@@ -27,9 +27,14 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Enemy"){
-            ObjectPool.SharedInstance.ReturnToPool(other.gameObject);
+            EnemyController.life -= 1;
+            if(EnemyController.life <= 0)
+            {
+                ObjectPool.SharedInstance.ReturnToPool(other.gameObject);
+                PlayerScore.playerScore += 1;
+                EnemyController.life = 3;
+            }
             ObjectPool.SharedInstance.ReturnToPool(gameObject);
-            PlayerScore.playerScore += 1;
         }
     }
 }

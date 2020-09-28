@@ -39,7 +39,6 @@ public class ObjectPool : MonoBehaviour
     
     public GameObject GetPooledObject(string tag, GameObject objectToPool)
     {
-        Debug.Log(tag);
         if(!pooledObjects.ContainsKey(tag)){
             AddObjects(tag, objectToPool);
         }

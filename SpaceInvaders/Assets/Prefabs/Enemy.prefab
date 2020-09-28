@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1245b2ed8840a94f93d213ac5d457bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.05
+  speed: 0.02
   next_spawn_time: 2
   shot: {fileID: 7229507533748415231, guid: 431abdd416af39845bffe8fbf6712c6b, type: 3}
   fireRate: 0.997

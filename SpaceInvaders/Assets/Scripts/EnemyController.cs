@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public float next_spawn_time;
     public GameObject shot;
     public float fireRate = 0.997f;
+    public static float life = 3;
     // Start is called before the first frame update
     void Start()
     {

@@ -11,6 +11,7 @@ public class SpawnerController : MonoBehaviour
     private bool increaseDifficult = true;
     public float timeSpawn;
     private bool spawned;
+    public float mimTime;
     void Start()
     {
         spawned = false;
@@ -20,7 +21,7 @@ public class SpawnerController : MonoBehaviour
     void FixedUpdate()
     {
         if(!spawned)
-            StartCoroutine(TimedSpawn(timeSpawn));
+            StartCoroutine(TimedSpawn(timeSpawn + mimTime));
 
             //InvokeRepeating("Spawn", timeSpawn, timeSpawn);
     }

@@ -19,7 +19,7 @@ public class EnemyBulletController : MonoBehaviour
         bullet.position += Vector3.up * -speed;
 
         if (bullet.position.y <= -7)
-            Destroy (bullet.gameObject);
+            ObjectPool.SharedInstance.ReturnToPool(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -30,10 +30,9 @@ public class EnemyBulletController : MonoBehaviour
             if(PlayerLife.playerLife <= 0)
             {
                 Destroy(other.gameObject);
-                Destroy (gameObject);
                 GameOver.isPlayerDead = true;
             }
-            
+            ObjectPool.SharedInstance.ReturnToPool(gameObject);
         }
     }
 }

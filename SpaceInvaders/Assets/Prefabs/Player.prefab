@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a243ae00585ada94e90366fd55d3f096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 0.2
   maxBound: 15
   minBound: -15
   maxUp: 6
@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8de21096a10b564683327b3a92949c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLife: 100
   blood: {fileID: 2800000, guid: b0e509f98a92c1f4499075d37e668f1a, type: 3}
   Contorno: {fileID: 2800000, guid: e8b7505e33c326a47828d60823a2081c, type: 3}
   maxLife: 100

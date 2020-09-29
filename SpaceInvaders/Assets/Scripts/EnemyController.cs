@@ -33,7 +33,15 @@ public class EnemyController : MonoBehaviour
 
         if (Random.value > fireRate)
         {
-            Instantiate(shot, enemy.position, enemy.rotation);
+            
+            //Instantiate(shot, enemy.position, enemy.rotation);
+            GameObject enemyShot = ObjectPool.SharedInstance.GetPooledObject(shot.tag, shot);
+            if (shot != null)
+            {
+                enemyShot.transform.position = enemy.transform.position;
+                enemyShot.transform.rotation = enemy.transform.rotation;
+                enemyShot.SetActive(true);
+            }
         }
     }
 

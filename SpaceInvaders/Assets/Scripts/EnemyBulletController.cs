@@ -26,9 +26,14 @@ public class EnemyBulletController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Destroy(other.gameObject);
-            Destroy (gameObject);
-            GameOver.isPlayerDead = true;
+            PlayerLife.playerLife -= 10f;
+            if(PlayerLife.playerLife <= 0)
+            {
+                Destroy(other.gameObject);
+                Destroy (gameObject);
+                GameOver.isPlayerDead = true;
+            }
+            
         }
     }
 }

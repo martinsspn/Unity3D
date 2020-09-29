@@ -60,10 +60,15 @@ public class EnemyController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Destroy(other.gameObject);
+            PlayerLife.playerLife -= 20;
+            if(PlayerLife.playerLife <= 0)
+            {
+                Destroy(other.gameObject);
+                GameOver.isPlayerDead = true;
+            }
             //Destroy (gameObject);
             ObjectPool.SharedInstance.ReturnToPool(gameObject);
-            GameOver.isPlayerDead = true;
+            
         }
     }
 }

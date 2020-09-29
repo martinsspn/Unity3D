@@ -6,10 +6,12 @@ public class MedKitController : MonoBehaviour
 {
     private Transform medKit;
     public float speed;
+    private AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
         medKit = GetComponent<Transform>();
+        audio = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -26,6 +28,7 @@ public class MedKitController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(audio.clip, transform.position);
             PlayerLife.playerLife += 50;
             ObjectPool.SharedInstance.ReturnToPool(gameObject);
         }

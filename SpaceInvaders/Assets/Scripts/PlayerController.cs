@@ -11,12 +11,15 @@ public class PlayerController : MonoBehaviour
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
+    private AudioSource AudioDestroyPlayer;
+    public static bool DestroyPlayer;
 
     private float nextFire;
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<Transform> ();
+        AudioDestroyPlayer = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,12 +44,12 @@ public class PlayerController : MonoBehaviour
         else
             player.position += Vector3.up * 1f * speed;
     }
-    
 
     void Update(){
         if(Input.GetButton("Fire1") && Time.time > nextFire){
             nextFire = Time.time + fireRate;
             //Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            BulletController.bulletSound = true;
             GameObject bullet = ObjectPool.SharedInstance.GetPooledObject("Bullet", shot);
         if (bullet != null)
         {
@@ -55,6 +58,12 @@ public class PlayerController : MonoBehaviour
             bullet.SetActive(true);
         }
             
+        }
+
+        if (DestroyPlayer)
+        {
+            AudioSource.PlayClipAtPoint(AudioDestroyPlayer.clip, transform.position);
+            DestroyPlayer = false;
         }
     }
 }

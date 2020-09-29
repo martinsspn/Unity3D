@@ -31,14 +31,16 @@ public class RockController : MonoBehaviour
             PlayerLife.playerLife -= 50;
             if(PlayerLife.playerLife <= 0)
             {
-                Destroy(other.gameObject);
+                PlayerController.DestroyPlayer = true;
+                Destroy(other.gameObject, 1f);
                 GameOver.isPlayerDead = true;
             }
             //Destroy (gameObject);
             ObjectPool.SharedInstance.ReturnToPool(gameObject);
         }
-        else
+        else if(other.tag == "Enemy")
         {
+            EnemyController.DestroyEnemy = true;
             ObjectPool.SharedInstance.ReturnToPool(other.gameObject);
         }
     }

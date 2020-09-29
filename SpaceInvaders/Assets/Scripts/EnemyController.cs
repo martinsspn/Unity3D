@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class EnemyController : MonoBehaviour
 {
     private Transform enemy;
@@ -11,12 +12,14 @@ public class EnemyController : MonoBehaviour
     public GameObject shot;
     public float fireRate = 0.997f;
     public static float life = 3;
+    private AudioSource audioData;
+    public static bool DestroyEnemy = false;
     // Start is called before the first frame update
     void Start()
     {
         enemy = GetComponent<Transform> ();
         next_spawn_time = Time.time+5.0f;
-        
+        audioData = GetComponent<AudioSource>();
     }
 
 
@@ -41,40 +44,37 @@ public class EnemyController : MonoBehaviour
                 enemyShot.transform.position = enemy.transform.position;
                 enemyShot.transform.rotation = enemy.transform.rotation;
                 enemyShot.SetActive(true);
+                EnemyBulletController.shotEnemyBullet = true;
             }
+        }
+
+        if (DestroyEnemy)
+        {
+            AudioSource.PlayClipAtPoint(audioData.clip, transform.position);
+            DestroyEnemy = false;
         }
     }
 
-/*
-    void Update(){
-        if(Time.time > next_spawn_time)
-     {
-         //do stuff here (like instantiate)
-        //Instantiate(enemy, Vector3.right * 2f, enemy.rotation);
-        GameObject enemy = ObjectPool.SharedInstance.GetPooledObject("Enemy");
-        Debug.Log("Entrou aqui");
-        if (enemy != null)
-        {
-            enemy.transform.position = Vector3.right * 2f;
-            enemy.transform.rotation = enemy.transform.rotation;
-            enemy.SetActive(true);
-        }
-        //increment next_spawn_time
-        next_spawn_time += 5.0f;
-     }
-    }
-*/
+
     void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.tag == "Player")
         {
             PlayerLife.playerLife -= 20;
             if(PlayerLife.playerLife <= 0)
             {
-                Destroy(other.gameObject);
+                PlayerController.DestroyPlayer = true;
+                Destroy(other.gameObject, 1f);
                 GameOver.isPlayerDead = true;
+                
+            }
+            else
+            {
+
             }
             //Destroy (gameObject);
+            AudioSource.PlayClipAtPoint(audioData.clip, transform.position);
             ObjectPool.SharedInstance.ReturnToPool(gameObject);
             
         }

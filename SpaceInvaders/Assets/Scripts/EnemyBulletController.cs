@@ -7,10 +7,13 @@ public class EnemyBulletController : MonoBehaviour
 {
     private Transform bullet;
     public float speed;
+    private AudioSource audio;
+    public static bool shotEnemyBullet = false;
     // Start is called before the first frame update
     void Start()
     {
         bullet = GetComponent<Transform> ();
+        audio = GetComponent<AudioSource> ();
     }
 
     // Update is called once per frame
@@ -20,6 +23,12 @@ public class EnemyBulletController : MonoBehaviour
 
         if (bullet.position.y <= -7)
             ObjectPool.SharedInstance.ReturnToPool(gameObject);
+        
+        if(shotEnemyBullet)
+        {
+            AudioSource.PlayClipAtPoint(audio.clip, transform.position);
+            shotEnemyBullet = false;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
